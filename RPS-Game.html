@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS</title>
+</head>
+<body>
+
+        <h1>Rock Paper Scissors</h1>
+
+        <p> Use the R key for rock
+        <p>P key for paper</p>
+        <p>S key for scissors</p>
+
+    <div id = "scores">
+        <p id="wins-text"> Wins: 0</p>
+        <p id="losses-text">Losses: 0</p>
+        <p id="ties-text">Ties: 0</p>
+    </div>
+
+    <hr>
+
+    <div id="selections"> 
+        <p id="userchoice-text"></p>
+        <p id="computerchoice-text"></p>
+    </div>
+
+    <script type="text/javascript">
+        var wins = 1;
+        var losses = 1;
+        var ties = 1;
+        var userChoiceText = document.getElementById("userchoice-text");
+        var computerChoiceText = document.getElementById("computerchoice-text");
+        var winsText = document.getElementById("wins-text");
+        var lossesText = document.getElementById("losses-text");
+        var tiesText = document.getElementById("ties-text");
+
+        document.onkeyup = function(event) {
+            console.log(event.key)
+
+            var playerselection = event.key
+
+            var computerOptions = ["r", "p", "s"]
+
+            var computerChoice = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+
+            if ((playerselection === "r") || (playerselection === "p") || (playerselection === "s")) {
+
+                userChoiceText.textContent = "You chose: " + playerselection;
+
+                computerChoiceText.textContent = "The computer chose: " + computerChoice;
+
+            }
+            else {
+                alert("Invalid answer. Use the R, P, and S keys.")
+            }
+
+            if ((playerselection === "r" && computerChoice === "s") || (playerselection === "p" && computerChoice === "r") || (playerselection === "s" && computerChoice === "p")) {
+                winsText.textContent = "Wins: " + wins++;
+            }
+            
+            if ((playerselection === "s" && computerChoice === "r") || (playerselection === "r" && computerChoice === "p") || (playerselection === "p" && computerChoice === "s")) {
+                lossesText.textContent = "Losses: " + losses++;
+            }
+
+            if ((playerselection === "r" && computerChoice === "r") || (playerselection === "p" && computerChoice === "p") || (playerselection === "s" && computerChoice === "s")) {
+                tiesText.textContent = "Ties: " + ties++;
+            }
+        }
+
+    </script>
+</body>
+</html>
