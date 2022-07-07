@@ -1,0 +1,8 @@
+body {
+    text-align: center;
+    background-color: rgb(56, 46, 104);
+    font-size: 20px;
+    color:aliceblue;
+    border: 5px solid rgb(31, 175, 163);
+    border-radius: 20px;
+}
